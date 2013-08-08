@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>java-httpserver - an HTTP server, in JAVA!</title>
+
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,600,300italic,600italic|Source+Code+Pro:300|Bitter:400,700,400italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style/style.css" />
+</head>
+<body>
+
+<div class="hero-img">&nbsp;</div>
+
+<article class="wrap">
+  <header>
+    <h1>java-httpserver</h1>
+  </header>
+
+  <section>
+    <hr>
+    <h2 class="info">
+      Simple Tutorial
+    </h2>
+
+    <nav>
+      <ul>
+        <li><a href="index.html">info</a></li>
+        <li><a href="https://github.com/dkuntz2/java-httpserver">github</a></li>
+        <li><a href="javadoc/index.html">javadoc</a></li>
+        <li><a href="tutorial.html">tutorial</a></li>
+      </ul>
+    </nav>
+
+    <p><strong>Warning!</strong> This tutorial is still under active 
+      development, just like the entire server. Things may change, or be
+      incomplete.</p>
+
+    <h2>Getting Started</h2>
+
+    <p>
+      java-httpserver is still under development, and needs to be finalized
+      a little more, but at present, the easiest way to get started is to
+      download the <code>httpserver</code> directory from the main
+      <a href="https://github.com/dkuntz2/java-httpserver">git repository</a>,
+      and include it in the root of your project.
+    </p>
+
+    <p>
+      Following that, you need to create at least one new class, an
+      <code><a href="javadoc/index.html?httpserver/HTTPHandlerFactory.html">
+      HTTPHandlerFactory</a></code>, which is used to determine what kind of
+      <code><a href="javadoc/index.html?httpserver/HTTPHandler.html">
+      HTTPHandler</a></code> should be used to handle an incoming request.
+    </p>
+
+    <h2>A basic server</h2>
+
+    <p>
+      <em>If you want to see a working example, look at the <code>demo</code>
+      directory on the git repository</em>.
+    </p>
+
+    <p>
+      A very basic server driver looks something like this:
+    </p>
+
+    <pre><code>// file: Driver.java
+import httpserver.*;
+
+public class Driver {
+    public static void main(String[] args) {
+        HTTPServer server = new HTTPServer();
+        server.setHandlerFactory(new MyHandlerFactory());
+
+        server.run();
+    }
+}</pre></code>
+
+<pre><code>// file: MyHandlerFactory.java
+import httpserver.*;
+
+public class MyHandlerFactory extends HTTPHandlerFactory {
+    public MyHandlerFactory() {}
+
+    public HTTPHandler determineHandler(String pathSegment, HTTPRequest request) throws HTTPException {
+        if (checkIfEquals(pathSegment, "hello", request))
+            return new HelloHandler(request.getConnection(), request);
+
+        // MessageHandler comes free with the httpserver package
+        return new MessageHandler(request, 418, "Nothing to do");
+    }
+}</pre></code>
+  
+
+  </section>
+
+  <footer>
+    <hr>
+    <p>Copyright &copy; 2013 <a href="http://dkuntz2.com">Don Kuntz</a> and <a href="https://github.com/mpeterson2">Michael Peterson</a><br>
+  </footer>
+</article>
+
+
+
+
+</body>
+</html>

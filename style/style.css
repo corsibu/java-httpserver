@@ -3,7 +3,8 @@ body {
   margin: 0;
   font-family: "Source Sans Pro", "Droid Sans", Helvetica, Arial, sans-serif;
   background: url(../img/gray_jean.png);
-  font-weight: 300; }
+  font-weight: 300;
+  font-size: 18px; }
 
 p {
   font-family: "Source Sans Pro", "Droid Sans", Helvetica, Arial, sans-serif;
@@ -21,10 +22,11 @@ h1 {
   text-align: center; }
 
 h1 {
-  font-size: 3em; }
+  font-size: 2.5em; }
 
 h2 {
-  font-weight: 400; }
+  font-weight: 400;
+  font-size: 1.3em; }
 
 hr {
   height: 0px;
@@ -66,7 +68,8 @@ code {
   font-weight: 300; }
 
 pre {
-  padding-bottom: 1em; }
+  padding-bottom: 1em;
+  overflow-x: scroll; }
 
 h2.info {
   font-style: italic;
@@ -93,3 +96,22 @@ h2.info {
   padding: 0;
   margin: 0;
   background-color: black; }
+
+nav {
+  border-top: 1px solid #cccccc;
+  border-bottom: 1px solid #cccccc;
+  margin-bottom: 1em;
+  padding: 1em 0; }
+  nav ul {
+    list-style: none;
+    padding: 0;
+    width: auto;
+    display: table;
+    margin: 0 auto; }
+  nav li {
+    display: inline-block;
+    padding: 0 .5em;
+    font-style: italic;
+    border-right: 1px solid #cccccc; }
+    nav li:last-child {
+      border-right: none; }

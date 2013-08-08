@@ -17,6 +17,7 @@ body {
   font-family: $bodyfont;
   background: url(../img/gray_jean.png);
   font-weight: 300;
+  font-size: 18px;
 }
 
 p {
@@ -35,8 +36,8 @@ h1, h2, h3, h4 {
   font-family: $titlefont;
 }
 h1 { text-align: center; }
-h1 { font-size: 3em; }
-h2 { font-weight: 400; }
+h1 { font-size: 2.5em; }
+h2 { font-weight: 400; font-size: 1.3em; }
 
 hr {
   height: 0px;
@@ -100,6 +101,7 @@ code {
 
 pre {
   padding-bottom: 1em;
+  overflow-x: scroll;
 }
 
 h2.info {
@@ -133,4 +135,30 @@ h2.info {
   border-bottom: 10px solid #444;
   padding: 0; margin: 0;
   background-color: black;
+}
+
+nav {
+  border-top: 1px solid lighten($lightgray, 30%);
+  border-bottom: 1px solid lighten($lightgray, 30%);
+  margin-bottom: 1em;
+  padding: 1em 0;
+
+  ul {
+    list-style: none;
+    padding: 0;
+    width: auto;
+    display: table;
+    margin: 0 auto;
+  }
+  li {
+    display: inline-block;
+    padding: 0 .5em;
+    font-style: italic;
+
+    border-right: 1px solid lighten($lightgray, 30%);
+    
+    &:last-child {
+      border-right: none;
+    }
+  }
 }
